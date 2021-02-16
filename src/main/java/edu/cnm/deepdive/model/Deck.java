@@ -2,10 +2,11 @@ package edu.cnm.deepdive.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-public class Deck implements Dealable {
+public class Deck implements Dealable, Iterable<Card> {
 
   private List<Card> cards;
 
@@ -42,6 +43,11 @@ public class Deck implements Dealable {
   @Override
   public String toString() {
     return cards.toString();
+  }
+
+  @Override
+  public Iterator<Card> iterator() {
+    return cards.iterator();
   }
 
 }

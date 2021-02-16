@@ -2,25 +2,28 @@ package edu.cnm.deepdive.model;
 
 public enum Suit {
 
-  CLUBS, DIAMONDS, HEARTS, SPADES;
+  CLUBS('\u2663', Color.BLACK),
+  DIAMONDS('\u2662', Color.RED),
+  HEARTS('\u2661', Color.RED),
+  SPADES('\u2660', Color.BLACK);
 
-  public char symbol() {
-    char symbol = 0;
-    switch (this) {
-      case CLUBS:
-        symbol = '\u2663';
-        break;
-      case DIAMONDS:
-        symbol = '\u2662';
-        break;
-      case HEARTS:
-        symbol = '\u2661';
-        break;
-      case SPADES:
-        symbol = '\u2660';
-        break;
-    }
+  private final char symbol;
+  private final Color color;
+
+  Suit(char symbol, Color color) {
+    this.symbol = symbol;
+    this.color = color;
+  }
+
+  public char getSymbol() {
     return symbol;
   }
 
+  public Color getColor() {
+    return color;
+  }
+
+  public enum Color {
+    BLACK, RED
+  }
 }

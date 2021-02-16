@@ -61,16 +61,10 @@ public class Trick {
   }
 
   private void sort() {
-     Comparator<Card> comparator = (card1, card2) -> {
-       int comparison = card1.getSuit().getColor().compareTo(card2.getSuit().getColor());
-       if (comparison == 0) {
-         comparison = card1.getSuit().compareTo(card2.getSuit());
-       }
-       if (comparison == 0) {
-         comparison = card1.getRank().compareTo(card2.getRank());
-       }
-       return comparison;
-     };
+     Comparator<Card> comparator =
+         Comparator.comparing((Card card) -> card.getSuit().getColor())
+         .thenComparing(Card::getSuit)
+             .thenComparing(Card::getRank);
     redPile.sort(comparator);
     blackPile.sort(comparator);
   }

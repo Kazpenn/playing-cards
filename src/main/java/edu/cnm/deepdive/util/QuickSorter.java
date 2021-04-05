@@ -3,12 +3,9 @@ package edu.cnm.deepdive.util;
 import edu.cnm.deepdive.model.Card;
 import java.util.Random;
 
-public class Sorter {
+public class QuickSorter extends AbstractSorter {
 
-  public void sort(Card[] cards) {
-    sort(cards, 0, cards.length);
-  }
-
+  @Override
   public void sort(Card[] cards, int start, int finish) {
     Random rng = new Random();
     if (finish > start + 1) {
